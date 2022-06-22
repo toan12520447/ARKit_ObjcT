@@ -24,6 +24,10 @@
 		2FA95AC828605AF2002E20F4 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA95AC728605AF2002E20F4 /* ARKit.framework */; };
 		2FA95ACE28605DC0002E20F4 /* BiquadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA95ACD28605DC0002E20F4 /* BiquadFilter.m */; };
 		2FA95AD528606AA5002E20F4 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA95AD428606AA5002E20F4 /* Constant.m */; };
+		2FD537BD2861A6C00027D7B3 /* LineGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD537BC2861A6C00027D7B3 /* LineGeometry.m */; };
+		2FD537C12861C3450027D7B3 /* MyVertexWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD537C02861C3450027D7B3 /* MyVertexWrapper.m */; };
+		2FD537C52862B91D0027D7B3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD537C42862B91D0027D7B3 /* art.scnassets */; };
+		2FD537C72862B9980027D7B3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2FD537C62862B9980027D7B3 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +78,13 @@
 		2FA95AD028606A20002E20F4 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		2FA95AD328606AA5002E20F4 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		2FA95AD428606AA5002E20F4 /* Constant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		2FD537BB2861A6C00027D7B3 /* LineGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineGeometry.h; sourceTree = "<group>"; };
+		2FD537BC2861A6C00027D7B3 /* LineGeometry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineGeometry.m; sourceTree = "<group>"; };
+		2FD537BE2861BD600027D7B3 /* ShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		2FD537BF2861C3450027D7B3 /* MyVertexWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyVertexWrapper.h; sourceTree = "<group>"; };
+		2FD537C02861C3450027D7B3 /* MyVertexWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyVertexWrapper.m; sourceTree = "<group>"; };
+		2FD537C42862B91D0027D7B3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		2FD537C62862B9980027D7B3 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +137,10 @@
 		2FA95A7D28605187002E20F4 /* ARKit_Objc */ = {
 			isa = PBXGroup;
 			children = (
+				2FD537C62862B9980027D7B3 /* Shaders.metal */,
+				2FD537C42862B91D0027D7B3 /* art.scnassets */,
+				2FD537BE2861BD600027D7B3 /* ShaderTypes.h */,
+				2FA95ACB28605DB0002E20F4 /* LineWrap */,
 				2FA95AC228605996002E20F4 /* Model */,
 				2FA95A7E28605187002E20F4 /* AppDelegate.h */,
 				2FA95A7F28605187002E20F4 /* AppDelegate.m */,
@@ -145,6 +160,8 @@
 				2FA95AD028606A20002E20F4 /* Header.h */,
 				2FA95AD328606AA5002E20F4 /* Constant.h */,
 				2FA95AD428606AA5002E20F4 /* Constant.m */,
+				2FD537BF2861C3450027D7B3 /* MyVertexWrapper.h */,
+				2FD537C02861C3450027D7B3 /* MyVertexWrapper.m */,
 			);
 			path = ARKit_Objc;
 			sourceTree = "<group>";
@@ -169,7 +186,6 @@
 		2FA95AC228605996002E20F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2FA95ACB28605DB0002E20F4 /* LineWrap */,
 				2FA95AC3286059B9002E20F4 /* Stroke.h */,
 				2FA95AC4286059B9002E20F4 /* Stroke.m */,
 			);
@@ -190,6 +206,8 @@
 				2FA95ACF286064BC002E20F4 /* ShaderTypes.h */,
 				2FA95ACC28605DC0002E20F4 /* BiquadFilter.h */,
 				2FA95ACD28605DC0002E20F4 /* BiquadFilter.m */,
+				2FD537BB2861A6C00027D7B3 /* LineGeometry.h */,
+				2FD537BC2861A6C00027D7B3 /* LineGeometry.m */,
 			);
 			path = LineWrap;
 			sourceTree = "<group>";
@@ -298,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FA95AB428605261002E20F4 /* ListViewStoryboard.storyboard in Resources */,
+				2FD537C52862B91D0027D7B3 /* art.scnassets in Resources */,
 				2FA95AB828605519002E20F4 /* ARSCNSreen.storyboard in Resources */,
 				2FA95A8E28605188002E20F4 /* LaunchScreen.storyboard in Resources */,
 				2FA95A8B28605188002E20F4 /* Assets.xcassets in Resources */,
@@ -330,8 +349,11 @@
 				2FA95A8028605187002E20F4 /* AppDelegate.m in Sources */,
 				2FA95ACE28605DC0002E20F4 /* BiquadFilter.m in Sources */,
 				2FA95A9128605188002E20F4 /* main.m in Sources */,
+				2FD537BD2861A6C00027D7B3 /* LineGeometry.m in Sources */,
+				2FD537C12861C3450027D7B3 /* MyVertexWrapper.m in Sources */,
 				2FA95AC128605594002E20F4 /* ARSCNSreen.m in Sources */,
 				2FA95A8328605187002E20F4 /* SceneDelegate.m in Sources */,
+				2FD537C72862B9980027D7B3 /* Shaders.metal in Sources */,
 				2FA95AC5286059B9002E20F4 /* Stroke.m in Sources */,
 				2FA95AD528606AA5002E20F4 /* Constant.m in Sources */,
 			);
