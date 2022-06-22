@@ -4,13 +4,14 @@
 //
 //  Created by Toan Tran on 21/06/2022.
 //
-
 #import <SceneKit/SceneKit.h>
-
-NS_ASSUME_NONNULL_BEGIN
-
+#include <vector>
 @interface LineGeometry : SCNGeometry
-- (instancetype)initVectors:(NSArray<NSValue*> *)vectors sides:(NSArray *)sides width:(CGFloat)width lengths:(NSArray *)lengths endCapPosition:(CGFloat)endCapPosition;
+- (SCNGeometry*) lineByVector:(std::vector<SCNVector3>)vector
+            sides:(NSMutableArray*)side
+            width:(CGFloat)wid
+           lengths:(NSMutableArray*)length
+        endCapPosition:(CGFloat)position;
 @end
 
-NS_ASSUME_NONNULL_END
+

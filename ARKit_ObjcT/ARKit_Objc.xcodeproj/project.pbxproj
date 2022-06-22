@@ -20,14 +20,17 @@
 		2FA95AB428605261002E20F4 /* ListViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA95AB328605261002E20F4 /* ListViewStoryboard.storyboard */; };
 		2FA95AB828605519002E20F4 /* ARSCNSreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FA95AB728605519002E20F4 /* ARSCNSreen.storyboard */; };
 		2FA95AC128605594002E20F4 /* ARSCNSreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA95AC028605594002E20F4 /* ARSCNSreen.m */; };
-		2FA95AC5286059B9002E20F4 /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA95AC4286059B9002E20F4 /* Stroke.m */; };
 		2FA95AC828605AF2002E20F4 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA95AC728605AF2002E20F4 /* ARKit.framework */; };
 		2FA95ACE28605DC0002E20F4 /* BiquadFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA95ACD28605DC0002E20F4 /* BiquadFilter.m */; };
 		2FA95AD528606AA5002E20F4 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA95AD428606AA5002E20F4 /* Constant.m */; };
-		2FD537BD2861A6C00027D7B3 /* LineGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD537BC2861A6C00027D7B3 /* LineGeometry.m */; };
-		2FD537C12861C3450027D7B3 /* MyVertexWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FD537C02861C3450027D7B3 /* MyVertexWrapper.m */; };
+		2FD537BD2861A6C00027D7B3 /* LineGeometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2FD537BC2861A6C00027D7B3 /* LineGeometry.mm */; };
 		2FD537C52862B91D0027D7B3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD537C42862B91D0027D7B3 /* art.scnassets */; };
 		2FD537C72862B9980027D7B3 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2FD537C62862B9980027D7B3 /* Shaders.metal */; };
+		2FD537D02862C9DF0027D7B3 /* Stroke.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2FD537CF2862C9DF0027D7B3 /* Stroke.mm */; };
+		2FD537D62862F78A0027D7B3 /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD537D52862F78A0027D7B3 /* libc++.1.tbd */; };
+		2FD537D82862F7920027D7B3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD537D72862F7920027D7B3 /* libc++.tbd */; };
+		2FD537DA2862F79B0027D7B3 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD537D92862F79B0027D7B3 /* libc++abi.tbd */; };
+		2FD537DE2862F84F0027D7B3 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FD537DD2862F84F0027D7B3 /* SceneKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +73,6 @@
 		2FA95ABF28605594002E20F4 /* ARSCNSreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARSCNSreen.h; sourceTree = "<group>"; };
 		2FA95AC028605594002E20F4 /* ARSCNSreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARSCNSreen.m; sourceTree = "<group>"; };
 		2FA95AC3286059B9002E20F4 /* Stroke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stroke.h; sourceTree = "<group>"; };
-		2FA95AC4286059B9002E20F4 /* Stroke.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Stroke.m; sourceTree = "<group>"; };
 		2FA95AC728605AF2002E20F4 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		2FA95ACC28605DC0002E20F4 /* BiquadFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BiquadFilter.h; sourceTree = "<group>"; };
 		2FA95ACD28605DC0002E20F4 /* BiquadFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BiquadFilter.m; sourceTree = "<group>"; };
@@ -79,12 +81,15 @@
 		2FA95AD328606AA5002E20F4 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		2FA95AD428606AA5002E20F4 /* Constant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		2FD537BB2861A6C00027D7B3 /* LineGeometry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineGeometry.h; sourceTree = "<group>"; };
-		2FD537BC2861A6C00027D7B3 /* LineGeometry.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineGeometry.m; sourceTree = "<group>"; };
+		2FD537BC2861A6C00027D7B3 /* LineGeometry.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LineGeometry.mm; sourceTree = "<group>"; };
 		2FD537BE2861BD600027D7B3 /* ShaderTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
-		2FD537BF2861C3450027D7B3 /* MyVertexWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyVertexWrapper.h; sourceTree = "<group>"; };
-		2FD537C02861C3450027D7B3 /* MyVertexWrapper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyVertexWrapper.m; sourceTree = "<group>"; };
 		2FD537C42862B91D0027D7B3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		2FD537C62862B9980027D7B3 /* Shaders.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
+		2FD537CF2862C9DF0027D7B3 /* Stroke.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Stroke.mm; sourceTree = "<group>"; };
+		2FD537D52862F78A0027D7B3 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		2FD537D72862F7920027D7B3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		2FD537D92862F79B0027D7B3 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		2FD537DD2862F84F0027D7B3 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +97,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FD537DE2862F84F0027D7B3 /* SceneKit.framework in Frameworks */,
+				2FD537DA2862F79B0027D7B3 /* libc++abi.tbd in Frameworks */,
+				2FD537D82862F7920027D7B3 /* libc++.tbd in Frameworks */,
+				2FD537D62862F78A0027D7B3 /* libc++.1.tbd in Frameworks */,
 				2FA95AC828605AF2002E20F4 /* ARKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,8 +169,6 @@
 				2FA95AD028606A20002E20F4 /* Header.h */,
 				2FA95AD328606AA5002E20F4 /* Constant.h */,
 				2FA95AD428606AA5002E20F4 /* Constant.m */,
-				2FD537BF2861C3450027D7B3 /* MyVertexWrapper.h */,
-				2FD537C02861C3450027D7B3 /* MyVertexWrapper.m */,
 			);
 			path = ARKit_Objc;
 			sourceTree = "<group>";
@@ -187,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				2FA95AC3286059B9002E20F4 /* Stroke.h */,
-				2FA95AC4286059B9002E20F4 /* Stroke.m */,
+				2FD537CF2862C9DF0027D7B3 /* Stroke.mm */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +202,10 @@
 		2FA95AC628605AF2002E20F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FD537DD2862F84F0027D7B3 /* SceneKit.framework */,
+				2FD537D92862F79B0027D7B3 /* libc++abi.tbd */,
+				2FD537D72862F7920027D7B3 /* libc++.tbd */,
+				2FD537D52862F78A0027D7B3 /* libc++.1.tbd */,
 				2FA95AC728605AF2002E20F4 /* ARKit.framework */,
 			);
 			name = Frameworks;
@@ -207,7 +218,7 @@
 				2FA95ACC28605DC0002E20F4 /* BiquadFilter.h */,
 				2FA95ACD28605DC0002E20F4 /* BiquadFilter.m */,
 				2FD537BB2861A6C00027D7B3 /* LineGeometry.h */,
-				2FD537BC2861A6C00027D7B3 /* LineGeometry.m */,
+				2FD537BC2861A6C00027D7B3 /* LineGeometry.mm */,
 			);
 			path = LineWrap;
 			sourceTree = "<group>";
@@ -349,13 +360,12 @@
 				2FA95A8028605187002E20F4 /* AppDelegate.m in Sources */,
 				2FA95ACE28605DC0002E20F4 /* BiquadFilter.m in Sources */,
 				2FA95A9128605188002E20F4 /* main.m in Sources */,
-				2FD537BD2861A6C00027D7B3 /* LineGeometry.m in Sources */,
-				2FD537C12861C3450027D7B3 /* MyVertexWrapper.m in Sources */,
+				2FD537BD2861A6C00027D7B3 /* LineGeometry.mm in Sources */,
 				2FA95AC128605594002E20F4 /* ARSCNSreen.m in Sources */,
 				2FA95A8328605187002E20F4 /* SceneDelegate.m in Sources */,
 				2FD537C72862B9980027D7B3 /* Shaders.metal in Sources */,
-				2FA95AC5286059B9002E20F4 /* Stroke.m in Sources */,
 				2FA95AD528606AA5002E20F4 /* Constant.m in Sources */,
+				2FD537D02862C9DF0027D7B3 /* Stroke.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +427,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -449,6 +459,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -475,7 +486,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -506,6 +517,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -526,9 +538,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = NO;
+				CLANG_WARN_SUSPICIOUS_MOVE = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8L589BGVFH;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_INPUT_FILETYPE = automatic;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ARKit_Objc/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -553,9 +571,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = NO;
+				CLANG_WARN_SUSPICIOUS_MOVE = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8L589BGVFH;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_INPUT_FILETYPE = automatic;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ARKit_Objc/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

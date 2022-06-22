@@ -18,7 +18,9 @@
 #define ShaderTypes_h
 
 #include <simd/simd.h>
-
+#ifdef __cplus
+#include <vector>
+#endif
 typedef struct {
     vector_float4 color;
     vector_float3 position;

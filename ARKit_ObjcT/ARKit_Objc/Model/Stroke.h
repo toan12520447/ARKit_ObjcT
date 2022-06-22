@@ -5,15 +5,15 @@
 //  Created by Toan Tran on 02/06/2022.
 //  Copyright © 2022 Softfoundry. All rights reserved.
 //
-
 #import <Foundation/Foundation.h>
 #import <ARKit/ARKit.h>
 #import "BiquadFilter.h"
-
+#include <vector>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Stroke : NSObject
-@property (strong, nonatomic) NSMutableArray<NSValue *> *points;
+@interface Stroke : NSObject<NSCopying>
+
+@property std::vector<SCNVector3> points;
 @property (assign, nonatomic) BOOL drawnLocally;
 @property (strong, nonatomic) NSMutableArray *mTaperLookup;
 @property (assign, nonatomic) int mTapperPoints;
@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) SCNNode *node;
 @property (assign, nonatomic) CGPoint touchStart;
 @property (assign, nonatomic) CGFloat mLineWidth;
-@property (strong, nonatomic) NSMutableArray *positionsVec3;
+@property std::vector<SCNVector3> positionsVec3;
 @property (strong, nonatomic) NSMutableArray *mSide;
 @property (strong, nonatomic) NSMutableArray *mLength;
 @property (assign, nonatomic) CGFloat smoothingCount;

@@ -54,7 +54,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self configureARSession:false runOptions:nil];
+    [self configureARSession:false runOptions:ARSessionRunOptionResetTracking];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
@@ -176,7 +176,7 @@
             ARAnchor *anchor = [self makeAnchor:touchPoint];
             if (anchor) {
                 stroke.anchor = anchor;
-                [stroke.points addObject:[NSValue valueWithSCNVector3:SCNVector3Zero]];
+                stroke.points.push_back(SCNVector3Zero);
                 stroke.touchStart = touchPoint;
                 stroke.lineWidth = LINE_WIDTH_float(strokeSize);
                 
@@ -281,25 +281,27 @@
 }
 - (void)updateLine:(Stroke *)stroke{
     SCNNode *strokeNode = stroke.node;
-    if (stroke.points.lastObject && stroke.node) {
+    //SCNVector3 last = stroke.points.at(stroke.points.size());
+    if (stroke.node) {
         SCNVector3 offset = [self unprojectedPositionAtBegin:touchPoint];
         SCNVector3 newPoint = [strokeNode convertPosition:offset toNode:scenceView.scene.rootNode];
         stroke.lineWidth = LINE_WIDTH_float(strokeSize);
         if ([stroke add:newPoint]) {
             [self updateGeometry:stroke];
         }
-        NSLog(@"Test1 Total Points, %ld", stroke.points.count);
+        NSLog(@"Test1 Total Points, %ld", stroke.points.size());
     }
 }
 - (void)updateGeometry:(Stroke *)stroke{
-    if (stroke.positionsVec3.count > 4) {
-        NSMutableArray *vectors = stroke.positionsVec3;
-        NSArray *sides = stroke.mSide;
+    if (stroke.positionsVec3.size() > 4) {
+        std::vector<SCNVector3> vectors = stroke.positionsVec3;
+        NSMutableArray *sides = stroke.mSide;
         CGFloat width = 0.006;
         NSArray *lengths = stroke.mLength;
         CGFloat totalLength = (stroke.drawnLocally) ? stroke.totalLength : stroke.animatedLength;
-        LineGeometry *line = [[LineGeometry alloc] initVectors:vectors sides:sides width:width lengths:lengths endCapPosition:totalLength];
-        stroke.node.geometry = line;
+        LineGeometry *line = [LineGeometry new];
+        SCNGeometry *geometry = [line lineByVector:vectors sides:sides width:width lengths:lengths endCapPosition:totalLength];
+        stroke.node.geometry = geometry;
     }
 }
 - (SCNVector3)unprojectedPositionAtBegin:(CGPoint)touch{

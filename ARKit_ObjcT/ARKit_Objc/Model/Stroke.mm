@@ -1,10 +1,14 @@
 //
 //  Stroke.m
-//  ios-ngn-stack
+//  ARKit_Objc
 //
-//  Created by Toan Tran on 02/06/2022.
-//  Copyright © 2022 Softfoundry. All rights reserved.
+//  Created by Toan Tran on 22/06/2022.
 //
+
+#include <vector>
+
+#import <Foundation/Foundation.h>
+#import <ARKit/ARKit.h>
 
 #import "Stroke.h"
 #include "math.h"
@@ -12,7 +16,6 @@
 @implementation Stroke
 - (instancetype)initStroke{
     self = [super init];
-    self.points = [NSMutableArray new];
     self.drawnLocally = true;
     self.mTaperLookup = [NSMutableArray new];
     self.mTapperPoints = 0;
@@ -20,7 +23,6 @@
     self.lineWidth = 0.011;
     self.touchStart = CGPointZero;
     self.mLineWidth = 0;
-    self.positionsVec3 = [NSMutableArray new];
     self.mSide = [NSMutableArray new];
     self.mLength = [NSMutableArray new];
     self.smoothingCount = 1500;
@@ -32,7 +34,7 @@
     return self;
 }
 - (int)size{
-    return (int)_points.count;
+    return (int)_points.size();
 }
 - (BOOL)updateAnimatedStroke{
     BOOL renderNeedsUpdate = false;
@@ -47,25 +49,25 @@
     return renderNeedsUpdate;
 }
 - (BOOL)add:(SCNVector3)point{
-    NSUInteger s = _points.count;
+    NSUInteger s = _points.size();
     
     // Filter the point
     SCNVector3 p = [self.biquadFilter updateVectorIn:point];
     
     // Check distance, and only add if moved far enough
     if(s > 0){
-        SCNVector3 lastPoint = [_points[s-1] SCNVector3Value];
+        SCNVector3 lastPoint = _points.at(s-1);
         CGFloat result = [self distance:point receiver:lastPoint];
         if (result < _lineWidth / 10) {
             return false;
         }
     }
     
-    _totalLength += [self distance:[_points[_points.count-1] SCNVector3Value] receiver:p];
+    _totalLength += [self distance:_points.at(_points.size() -1) receiver:p];
     
     
     // Add the point
-    [_points addObject:[NSValue valueWithSCNVector3:p]];
+    _points.push_back(p);
     
     
     // Cleanup vertices that are redundant
@@ -73,7 +75,7 @@
         CGFloat angle = [self calculateAngle:(int)s-2];
         // Remove points that have very low angle change
         if (angle < 0.05) {
-            [_points removeObjectAtIndex:(s - 2)];
+            _points.erase(_points.end() - 2);
         } else {
             [self subdivideSection:(int)(s - 3) maxAngle:0.3 iteration:0];
         }
@@ -138,9 +140,9 @@
     return fabs(atan2(cross, dot));
 }
 - (CGFloat)calculateAngle:(int)index{
-    SCNVector3 p1 = [_points[index-1] SCNVector3Value];
-    SCNVector3 p2 = [_points[index] SCNVector3Value];
-    SCNVector3 p3 = [_points[index+1] SCNVector3Value];
+    SCNVector3 p1 = _points.at(index-1);
+    SCNVector3 p2 = _points.at(index);
+    SCNVector3 p3 = _points.at(index + 1);
     
     CGFloat x = p2.x - p1.x;
     CGFloat y = p2.y - p1.y;
@@ -166,9 +168,9 @@
         return;
     }
     
-    SCNVector3 p1 = [_points[s] SCNVector3Value];
-    SCNVector3 p2 = [_points[s + 1] SCNVector3Value];
-    SCNVector3 p3 = [_points[s + 2] SCNVector3Value];
+    SCNVector3 p1 = _points.at(s);
+    SCNVector3 p2 = _points.at(s + 1);
+    SCNVector3 p3 = _points.at(s + 2);
     
     SCNVector3 n1 = [self subVecs:p2 rhs:p1];
     SCNVector3 n2 = [self subVecs:p3 rhs:p2];
@@ -183,16 +185,15 @@
         n2 = [self scaleVec:n2 factor:0.5];
         n1 = [self addVecs:n1 rhs:p1];
         n2 = [self addVecs:n2 rhs:p2];
-        
-        [_points insertObject:[NSValue valueWithSCNVector3:n1] atIndex: s + 1];
-        [_points insertObject:[NSValue valueWithSCNVector3:n2] atIndex: s + 3];
+        _points.insert(_points.begin() + s + 1, n1);
+        _points.insert(_points.begin() + s + 3, n2);
         
         [self subdivideSection:s+2 maxAngle:maxAngle iteration:iteration+1];
         [self subdivideSection:s maxAngle:maxAngle iteration:iteration+1];
     }
 }
 - (SCNVector3)get:(int)i{
-    return [_points[i] SCNVector3Value];
+    return _points.at(i);
 }
 
 - (void)setTapper:(CGFloat)slope numPoints:(int)numPoints{
@@ -217,7 +218,7 @@
     CGFloat lengthAtPoint = 0;
     if (_totalLength <= 0) {
         for (int i = 1; i<lineSize; i++) {
-            _totalLength += [self distance:[_points[i-1] SCNVector3Value] receiver:[_points[i] SCNVector3Value]];
+            _totalLength += [self distance:_points.at(i-1) receiver:_points.at(1)];
         }
     }
     int ii = 0;
@@ -258,16 +259,16 @@
     [_mLength removeAllObjects];
     _totalLength = 0;
     _mLineWidth = 0;
-    [_positionsVec3 removeAllObjects];
+    _positionsVec3.clear();
 }
 - (void)setMemory:(int)index pos:(SCNVector3)pos side:(CGFloat)side length:(CGFloat)length{
-    [_positionsVec3 addObject:[NSValue valueWithSCNVector3:pos]];
+    _points.push_back(pos);
     [_mLength addObject:[NSNumber numberWithFloat:length]];
     [_mSide addObject:[NSNumber numberWithFloat:side]];
 }
 - (void)cleanup{
     [self resetMemory];
-    [_points removeAllObjects];
+    _points.clear();
     [_node removeFromParentNode];
     _node = nil;
     _anchor = nil;
@@ -280,7 +281,7 @@
 }
 - (id)copyWithZone{
     Stroke *strokeCopy = [Stroke new];
-    strokeCopy.points = _points;
+//    strokeCopy.points = points;
     strokeCopy.mTaperLookup = _mTaperLookup;
     strokeCopy.mTapperPoints = _mTapperPoints;
     strokeCopy.mTapperSlope = _mTapperSlope;
